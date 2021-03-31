@@ -9,8 +9,13 @@ def send_to_rasa(text="Hi there!"):
     data = '{ "sender": "test_user", "message": "' + text + '", "metadata": {} }'
 
     response = requests.post('http://localhost:5005/webhooks/myio/webhook', headers=headers, data=data)
-    print(response.text)
-    return response.json()[0]["text"]
+    print(f"Bot response: \n{response.text}\n")
+    try:
+        text = response.json()[0]["text"]
+    except IndexError:
+        print("Warning: Bad index")
+        text = "I didn't catch that"
+    return text
 
 
 if __name__ == '__main__':

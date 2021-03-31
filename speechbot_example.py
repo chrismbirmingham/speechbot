@@ -28,13 +28,14 @@ while scribe.stream.is_active():
 
         # Stop stream while playing audio
         scribe.stream.stop_stream()
-        sounddevice.play(umm_wav, 22040 * PLAY_SPEED, blocking=False)
+        # sounddevice.play(umm_wav, 22040 * PLAY_SPEED, blocking=False)
         print(f"Logging. Heard: {scribe.final_text}")
 
         response_text = send_to_rasa(scribe.final_text)
         print(f"Logging. Bot Response: {response_text}")
 
         _, _, _, wav = spkr.tts(response_text)
+        time.sleep(0.1)
         sounddevice.play(wav, 22040 * PLAY_SPEED, blocking=True)
 
         print("Logging. Restarting the stream.")
