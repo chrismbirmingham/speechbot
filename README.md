@@ -13,7 +13,7 @@ sh setup_stt.sh
 sh setup_tts.sh
 ```
 
-Once setup is complete, the example scripts should work. To run the rasa example you will need to start one of the rasa bots, which can be done by entering the rasa_[bot] directory and calling `$rasa run`.
+Once setup is complete, the example scripts should work. To run the rasa example you will need to start one of the rasa bots, which can be done by entering the rasa_[bot] directory and calling `$rasa run`. I recommend starting with the rasa_example, as rasa_greeter is still a work in progress.
 
 # Add your own bot
 To add a new bot, you just have to copy the custom_channel.py into your bot's addons directory, and copy the following into the credentials.yml:
