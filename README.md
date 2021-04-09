@@ -8,10 +8,12 @@ This was heavily inspired by the excellent example from Rasa [here](https://blog
 To set up speechbot:
 
 ```
-pip install requirments.txt
+pip install -r requirments.txt
 sh setup_stt.sh
 sh setup_tts.sh
 ```
+
+Note: if PyAudio is having trouble installing, try `sudo apt install portaudio19-dev python3-pyaudio`
 
 Once setup is complete, the example scripts should work. To run the rasa example you will need to start one of the rasa bots, which can be done by entering the rasa_[bot] directory and calling `$rasa run`. I recommend starting with the rasa_example, as rasa_greeter is still a work in progress.
 
@@ -23,6 +25,8 @@ addons.custom_channel.MyIO:
   username: "user_name"
   another_parameter: "some value"
 ```
+
+To converse with this bot, you will need to `rasa train` and `rasa run` in the bot's directory and launch speechbot_example.py or rasa_example.py (if you don't want to use your voice).
 
 
 # Contributing
